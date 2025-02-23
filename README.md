@@ -97,26 +97,3 @@ npx serve -s build
 
 ---
 
-## 🚀 Deployment
-
-To deploy MedBuddy as a PWA, use platforms like:
-- **Vercel** (`vercel deploy`)
-- **Netlify** (`netlify deploy`)
-- **Firebase Hosting** (`firebase deploy`)
-
----
-
-## 📜 License
-This project is licensed under the **MIT License**.
-
----
-
-## 💡 Future Enhancements
-- ✅ **Voice Input for Chatbot**
-- ✅ **Push Notifications for Updates**
-- ✅ **More AI-Powered Health Insights**
-
----
-
-Made with ❤️ by MedBuddy Team
-
