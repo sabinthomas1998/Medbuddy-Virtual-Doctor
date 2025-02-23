@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# MedBuddy - Virtual Doctor (PWA)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MedBuddy is a **Progressive Web App (PWA)** that acts as a **virtual doctor chatbot** to analyze medical conditions and provide insights. Users can install it on their devices for a native-like experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+✅ **AI-Powered Chatbot** - Provides medical analysis using Cohere AI
+✅ **PWA Enabled** - Can be installed on mobile & desktop
+✅ **Offline Support** - Works with cached data when offline
+✅ **Mobile Responsive** - Optimized UI for all screen sizes
+✅ **Fast & Secure** - Service workers ensure efficient performance
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Installation & Setup
 
-### `npm test`
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/your-username/MedBuddy.git
+cd MedBuddy
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **2️⃣ Install Dependencies**
+#### **Backend (Express.js)**
+```sh
+cd backend
+npm install
+```
+#### **Frontend (React + Material UI + PWA)**
+```sh
+cd ../virtual-doctor-frontend
+npm install
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🌐 Running the App
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Start Backend**
+```sh
+cd backend
+node server.js
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Start Frontend**
+```sh
+cd ../virtual-doctor-frontend
+npm start
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📲 PWA Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **1️⃣ Register Service Worker**
+Ensure `src/serviceWorkerRegistration.js` contains:
+```javascript
+export function register() {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((registration) => {
+          console.log("Service Worker registered with scope:", registration.scope);
+        })
+        .catch((error) => {
+          console.error("Service Worker registration failed:", error);
+        });
+    });
+  }
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **2️⃣ Create `manifest.json` in `public/`**
+```json
+{
+  "short_name": "MedBuddy",
+  "name": "MedBuddy - Virtual Doctor",
+  "icons": [
+    { "src": "/logo192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/logo512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1976d2",
+  "background_color": "#ffffff"
+}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **3️⃣ Build for Production**
+```sh
+npm run build
+npx serve -s build
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To deploy MedBuddy as a PWA, use platforms like:
+- **Vercel** (`vercel deploy`)
+- **Netlify** (`netlify deploy`)
+- **Firebase Hosting** (`firebase deploy`)
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📜 License
+This project is licensed under the **MIT License**.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 💡 Future Enhancements
+- ✅ **Voice Input for Chatbot**
+- ✅ **Push Notifications for Updates**
+- ✅ **More AI-Powered Health Insights**
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Made with ❤️ by MedBuddy Team
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
