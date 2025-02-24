@@ -9,7 +9,7 @@ MedBuddy is a **Progressive Web App (PWA)** that acts as a **virtual doctor chat
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone [https://github.com/your-username/MedBuddy.git](https://github.com/sabinthomas1998/Medbuddy-Virtual-Doctor.git)
+git clone https://github.com/sabinthomas1998/Medbuddy-Virtual-Doctor.git
 cd MedBuddy
 ```
 
