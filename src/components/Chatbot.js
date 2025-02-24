@@ -10,6 +10,8 @@ const Chatbot = () => {
   const [loading, setLoading] = useState(false);
   const [chatLoaded, setChatLoaded] = useState(false); // State to track chatbot loading status
   const chatContainerRef = useRef(null);
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/chatbot"; // Default to localhost for development
+
 
   // Medical keyword filter
   const medicalKeywords = ["hi", "hello", "symptoms", "diagnosis", "treatment", "disease", "doctor", "fever", "pain",
@@ -48,6 +50,8 @@ const Chatbot = () => {
     return urgentSymptoms.some(symptom => message.toLowerCase().includes(symptom.toLowerCase()));
   };
 
+  
+
   // Scroll to latest message
   useEffect(() => {
     chatContainerRef.current?.scrollTo({
@@ -67,6 +71,51 @@ const Chatbot = () => {
     setMessages([]);
     setInput("");
     setLoading(false);
+  };
+
+  const fetchMedicalIllustration = async (query) => {
+    try {
+      const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
+      params: {
+        key: process.env.REACT_APP_GOOGLE_API_KEY,
+        cx: process.env.REACT_APP_SEARCH_ENGINE_ID,
+        searchType: "image",
+        q: `${query} medical illustration`,
+      },
+    });
+      return response.data.items?.[0]?.link || "";
+    } catch (error) {
+      console.error("Error fetching medical illustration:", error);
+      return "";
+    }
+  };
+
+  const fetchYouTubeVideo = async (query) => {
+    try {
+      const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
+        params: {
+          key: process.env.REACT_APP_YOUTUBE_API_KEY,
+          q: `${query} treatment exercise`,
+          part: "snippet",
+          maxResults: 1,
+          type: "video",
+        },
+      });
+      return response.data.items?.[0]?.id?.videoId || "";
+    } catch (error) {
+      console.error("Error fetching YouTube video:", error);
+      return "";
+    }
+  };
+
+  const shouldFetchVideo = (query) => {
+    const videoKeywords = ["video", "exercise", "treatment video", "YouTube"];
+    return videoKeywords.some(keyword => query.toLowerCase().includes(keyword));
+  };
+
+  const shouldFetchIllustration = (query) => {
+    const illustrationKeywords = ["anatomy", "diagram", "x-ray", "CT scan", "MRI", "ultrasound","image", "picture", "graph", "pic","diagram", "chart","illustration"];
+    return illustrationKeywords.some(keyword => query.toLowerCase().includes(keyword));
   };
 
   const handleSend = async () => {
@@ -115,7 +164,25 @@ const Chatbot = () => {
         history: newMessages.map(msg => ({ role: msg.sender, content: msg.text }))
       });
 
-      const botReply = formatBotReply(response.data.reply);
+      
+
+      let botReply = formatBotReply(response.data.reply);
+      const imageUrl = await fetchMedicalIllustration(input);
+
+      if (shouldFetchIllustration(input)) {
+        const imageUrl = await fetchMedicalIllustration(input);
+        if (imageUrl) {
+          botReply += `<br/><br/><img src='${imageUrl}' alt='Medical Illustration' style='max-width:100%; border-radius:10px;' />`;
+        }
+      }
+  
+      if (shouldFetchVideo(input)) {
+        const videoId = await fetchYouTubeVideo(input);
+        if (videoId) {
+          botReply += `<br/><br/><a href='https://www.youtube.com/watch?v=${videoId}' target='_blank'>📺 Watch Related Video</a>`;
+        }
+      }
+
       setMessages([...newMessages, { text: botReply, sender: "bot" }]);
     } catch (error) {
       setMessages([...newMessages, { text: "❌ Error: Unable to get response", sender: "bot" }]);
