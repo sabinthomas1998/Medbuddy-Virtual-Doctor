@@ -159,7 +159,7 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chatbot", {
+      const response = await axios.post(API_URL,{
         message: input,
         history: newMessages.map(msg => ({ role: msg.sender, content: msg.text }))
       });

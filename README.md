@@ -2,6 +2,8 @@
 
 MedBuddy is a **Progressive Web App (PWA)** that acts as a **virtual doctor chatbot** to analyze medical conditions and provide insights. Users can install it on their devices for a native-like experience.
 
+DEMO URL: https://medbuddy-virtual-doctor-frontend.onrender.com/
+
 ---
 
 
@@ -9,7 +11,7 @@ MedBuddy is a **Progressive Web App (PWA)** that acts as a **virtual doctor chat
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/your-username/MedBuddy.git
+git clone https://github.com/sabinthomas1998/Medbuddy-Virtual-Doctor.git
 cd MedBuddy
 ```
 
@@ -50,5 +52,12 @@ npm run build
 npx serve -s build
 ```
 
----
+
+### ** Make sure to update the .env file with gemini key**
+```sh
+go to backend/.env
+and update the api key by generating a key from https://deepmind.google/technologies/gemini/ (choose build with Gemini)
+```
+
+
 
