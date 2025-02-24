@@ -2,6 +2,8 @@
 
 MedBuddy is a **Progressive Web App (PWA)** that acts as a **virtual doctor chatbot** to analyze medical conditions and provide insights. Users can install it on their devices for a native-like experience.
 
+DEMO URL: https://medbuddy-virtual-doctor-frontend.onrender.com/
+
 ---
 
 
