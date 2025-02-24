@@ -10,6 +10,8 @@ const Chatbot = () => {
   const [loading, setLoading] = useState(false);
   const [chatLoaded, setChatLoaded] = useState(false); // State to track chatbot loading status
   const chatContainerRef = useRef(null);
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/chatbot"; // Default to localhost for development
+
 
   // Medical keyword filter
   const medicalKeywords = ["hi", "hello", "symptoms", "diagnosis", "treatment", "disease", "doctor", "fever", "pain",
@@ -110,7 +112,7 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chatbot", {
+      const response = await axios.post(API_URL,{
         message: input,
         history: newMessages.map(msg => ({ role: msg.sender, content: msg.text }))
       });
