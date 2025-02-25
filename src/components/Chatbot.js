@@ -37,7 +37,25 @@ const Chatbot = () => {
     "asbestosis", "lung cancer", "smoking cessation", "alcoholism", "substance abuse", "drug addiction", "overdose",
     "emergency care", "ambulance", "ICU", "trauma", "burn injury", "wound healing", "postoperative care", "pain relief",
     "sedation", "anesthesia", "radiation therapy", "chemotherapy", "immunotherapy", "gene therapy", "biotechnology",
-    "stem cells", "regenerative medicine", "treated","bleeding","bleed"];
+    "stem cells", "regenerative medicine", "treated","bleeding","bleed","eyelid", "orbital", "periorbital", "edema", 
+                           "conjunctivitis", "cellulitis", "sinusitis", "blepharitis", "autoimmune disorders", "folliculitis", 
+                           "allergic reaction", "inflammation", "infection", "trauma", "injury", "irritation", "antihistamines", 
+                           "antibiotics", "dehydration", "fluid retention", "acute infection", "chronic inflammation", "anaphylactic shock", 
+                           "sinus disease", "thyroid disease", "seborrhea", "rosacea","head", "cranium", "skull", "braincase", "neck", "cervical region", 
+                           "nape", "collar", "eyes", "orbs", "peepers", "sight", "ears", "auricles", "hearing organs", "lobes", "nose", "sniffer", 
+                           "olfactory organ", "nostrils", "mouth", "oral cavity", "maw", "oral fissure", "throat", "gullet", "pharynx", "windpipe", 
+                           "thyroid", "thyroid gland", "endocrine gland", "larynx", "voice box", "Adam's apple", "forehead", "brow", "front", "frontal bone",
+                           "cheeks", "jowls", "sides of the face", "malar", "shoulders", "deltoids", "scapulae", "pectoral girdle", "arms", "upper limbs",
+                           "appendages", "forelimbs", "elbows", "joints", "articulations", "bend", "wrists", "carpus", "wrist joint", "radiocarpal joint",
+                           "hands", "palms", "mitts", "graspers", "fingers", "digits", "phalanges", "extremities", "chest", "thorax", "pectoral region", 
+                           "ribcage", "heart", "cardiac muscle", "ticker", "pump", "lungs", "respiratory organs", "air sacs", "breathers", "ribs", 
+                           "rib bones", "costae", "stomach", "belly", "abdomen", "tummy", "liver", "hepatic organ", "bile producer", "kidneys", 
+                           "renal organs", "nephritic organs", "pancreas", "pancreatic gland", "intestines", "bowels", "guts", "digestive tract", 
+                           "bladder", "urinary bladder", "vesica", "spleen", "lien", "blood filter", "diaphragm", "midriff", "thoracic diaphragm", "hips",
+                           "pelvis", "pelvic girdle", "flanks", "thighs", "femoral region", "upper legs", "knees", "patellas", "kneecaps", "joints", "legs",
+                           "lower limbs", "appendages", "extremities", "ankles", "ankle joints", "tarsal bones", "feet", "pedals", "soles", "toes", "digits", 
+                           "phalanges", "vertebrae", "spinal bones", "backbones", "spinal cord", "medulla spinalis", "back muscles", "dorsal muscles", "ovaries",
+                           "female gonads", "uterus", "womb", "testes", "male gonads", "testicles", "prostate", "prostate gland"];
 
   // Urgent symptom keywords
   const urgentSymptoms = ["chest pain", "difficulty breathing", "shortness of breath", "severe headache", "severe dizziness", "fainting", "loss of consciousness"];
