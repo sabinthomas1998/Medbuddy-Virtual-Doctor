@@ -14,7 +14,7 @@ const Chatbot = () => {
 
 
   // Medical keyword filter
-  const medicalKeywords = ["hi", "hello", "symptoms", "diagnosis", "treatment", "disease", "doctor", "fever", "pain",
+  const medicalKeywords = ["hi", "hello", "symptoms", "diagnosis", "treatment", "disease", "doctor", "fever", "pain","eye brows","eye","lip","lips","above","below",
     "flu", "infection", "cancer", "medicine", "virus", "bacteria", "vaccine", "injury", "surgery", "COVID", "diabetes",
     "hypertension", "heart", "lungs", "liver", "kidney", "therapy", "migraine", "asthma", "stroke", "allergy", "fracture",
     "cough", "cold", "mental health", "anxiety", "depression", "exercise", "PT", "food diet", "nutrition", "cholesterol",
